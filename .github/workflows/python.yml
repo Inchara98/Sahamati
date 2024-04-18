@@ -49,6 +49,15 @@ jobs:
         GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
         RECIPIENT_EMAIL: incharakgowda1998@gmail.com  # Replace with the recipient's email
       run: |
-        python Reports/send_email_script.py $GMAIL_USERNAME $GMAIL_PASSWORD $RECIPIENT_EMAIL
+        python Reports/send_email_script.py "$GMAIL_USERNAME" "$GMAIL_PASSWORD" "$RECIPIENT_EMAIL"
 
+
+#    - name: Configure Gmail and Send Email
+#      env:
+#        GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+#        GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+#        RECIPIENT_EMAIL: incharakgowda1998@gmail.com  # Replace with the recipient's email
+#      run: |
+#        python Reports/send_email_script.py $GMAIL_USERNAME $GMAIL_PASSWORD $RECIPIENT_EMAIL
+#
 

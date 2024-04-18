@@ -33,8 +33,8 @@ def send_email(username, password, recipient_email):
 
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
+    gmail_username = sys.argv[1]
+    gmail_password = sys.argv[2]
     recipient_email = sys.argv[3]
 
-    send_email(username, password, recipient_email)
+    send_email(gmail_username, gmail_password, recipient_email)
