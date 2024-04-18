@@ -32,7 +32,7 @@ jobs:
     - name: execute py script # run main.py
       run: |
              pytest --html=./Reports/report.html ./Test_cases/Test_demo.py --browser chrome
-#             pytest ./Test_cases/Test_DD.py --browser chrome
+#
 
 
 
