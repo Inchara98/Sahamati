@@ -37,7 +37,7 @@ class Login(Base):
         self.driver.find_element(By.ID, self.username).send_keys(ReadConfig.getUserID())
         self.driver.find_element(By.ID, self.password).send_keys(ReadConfig.getPassword())
         self.click(self.submit)
-        time.sleep(2)
+        time.sleep(5)
 
     def compare_autofilled_clientid_with_id_name(self):
         text1 = self.get_web_element_text(self.id_name)

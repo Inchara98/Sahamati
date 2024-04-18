@@ -39,6 +39,5 @@ class Testlogin:
         self.logger.info("********************test_FIU_kpi_value started*********************")
         self.driver = setup
         self.loginpage = Login(self.driver)
-        self.driver.maximize_window()
         self.loginpage.open_login_page()
         self.loginpage.validate_fiu_kpi_value()
