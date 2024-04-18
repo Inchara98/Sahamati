@@ -1,0 +1,53 @@
+name:  selenium Test.py
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9  # Replace 'x' with your desired Python version
+
+
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        pip install selenium
+        pip install openpyxl
+        pip install pytest-html
+
+    
+  
+    
+
+    - name: execute py script # run main.py
+      run: |
+             pytest --html=./Reports/report.html ./Test_cases/Test_demo.py --browser chrome
+#             pytest ./Test_cases/Test_DD.py --browser chrome
+
+
+
+    - name: Send Email Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: Test Report
+        path: ./Reports/report.html
+
+    - name: Configure Gmail and Send Email
+      env:
+        GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+        GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        RECIPIENT_EMAIL: incharakgowda1998@gmail.com  # Replace with the recipient's email
+      run: |
+        python Reports/send_email_script.py $GMAIL_USERNAME $GMAIL_PASSWORD $RECIPIENT_EMAIL
+
+
