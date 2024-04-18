@@ -31,7 +31,9 @@ jobs:
 
     - name: execute py script # run main.py
       run: |
-             pytest --html=./Reports/report.html ./Test_cases/Test_demo.py --browser chrome
+#             pytest --html=./Reports/report.html ./Test_cases/Test_demo.py --browser chrome
+              pytest -s -v Test_Cases/Test_demo.py --html=Reports/homepage.html --browser chrome
+
 #
 
 
