@@ -12,7 +12,7 @@ def setup(browser):
     prefs = {'download.default_directory': ReadConfig.get_download_dir()}
     options.add_experimental_option('prefs', prefs)
     options.add_argument("--window-size=3860,2160")
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
