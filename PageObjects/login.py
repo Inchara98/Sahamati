@@ -11,8 +11,8 @@ sys.path.append(os.getcwd())
 
 
 class Login(Base):
-    username = (By.ID, "username")
-    password = (By.ID, "password")
+    username = "username"
+    password = "password"
     submit = (By.ID, "kc-login")
     id_name = (
         By.XPATH, "/html/body/app-root/app-dashboard/div/main/app-dashboard-overview/div/table/tbody/tr[1]/td[2]")
@@ -31,11 +31,12 @@ class Login(Base):
         self.driver = driver
 
     def open_login_page(self):
+        time.sleep(3)
         self.get_url(ReadConfig.get_application_url())
         self.driver.maximize_window()
         time.sleep(3)
-        self.driver.find_element(self.username).send_keys(ReadConfig.getUserID())
-        self.driver.find_element(self.password).send_keys(ReadConfig.getPassword())
+        self.driver.find_element(By.ID, self.username).send_keys(ReadConfig.getUserID())
+        self.driver.find_element(By.ID, self.password).send_keys(ReadConfig.getPassword())
         self.click(self.submit)
         time.sleep(5)
 
